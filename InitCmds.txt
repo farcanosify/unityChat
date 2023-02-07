@@ -1,0 +1,7 @@
+git config --global user.name "farcanosify"
+git config --global user.email "farcanosify@gmail.com"
+git init
+git add .
+git commit -m "second"
+git remote add origin git@github.com:farcanosify/unityChat.git
+git push -f origin master

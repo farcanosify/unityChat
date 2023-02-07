@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveWithKeys : MonoBehaviour
+{
+    // public variable to set the speed of movement
+    public float speed = 10.0f;
+
+    private void Update()
+    {
+        // Check if the W key is pressed
+        float vertical = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
+
+        // Check if the A key is pressed
+        float horizontal = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
+
+        // Move the object in the horizontal and vertical directions
+        transform.position += new Vector3(horizontal * speed * Time.deltaTime, vertical * speed * Time.deltaTime, 0);
+    }
+}
