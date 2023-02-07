@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveWithKeys : MonoBehaviour
+{
+    // public variable to set the speed of movement
+    public float speed = 10.0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Initialization code goes here
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Check if the W key is pressed
+        float vertical = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
+
+        // Check if the A key is pressed
+        float horizontal = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
+
+        // Get the current position of the object
+        Vector2 pos = transform.position;
+
+        // Update the x and y position of the object using horizontal and vertical input and delta time
+        pos.x += horizontal * speed * Time.deltaTime;
+        pos.y += vertical * speed * Time.deltaTime;
+
+        // Set the new position of the object
+        transform.position = pos;
+    }
+}
